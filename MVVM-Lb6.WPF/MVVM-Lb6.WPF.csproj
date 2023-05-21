@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net7.0-windows</TargetFramework>
+        <RootNamespace>MVVM_Lb6</RootNamespace>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FontAwesome6.Fonts" Version="2.5.1" />
+      <PackageReference Include="FontAwesome6.Svg" Version="2.5.1" />
+      <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+      <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Update="Views\Main\MainWindow.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="UIModels" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\MVVM-lb6.Server\MVVM-lb6.Domain\MVVM-lb6.Domain.csproj" />
+    </ItemGroup>
+
+</Project>

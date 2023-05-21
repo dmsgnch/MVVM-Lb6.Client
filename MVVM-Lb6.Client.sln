@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVM-Lb6.WPF", "MVVM-Lb6.WPF\MVVM-Lb6.WPF.csproj", "{9A84BA77-9D25-41ED-987A-4F537A760C85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVM-lb6.Domain", "..\MVVM-lb6.Server\MVVM-lb6.Domain\MVVM-lb6.Domain.csproj", "{B29F91E9-77E8-45D3-A753-B43C5BD82E3C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A84BA77-9D25-41ED-987A-4F537A760C85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A84BA77-9D25-41ED-987A-4F537A760C85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A84BA77-9D25-41ED-987A-4F537A760C85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A84BA77-9D25-41ED-987A-4F537A760C85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B29F91E9-77E8-45D3-A753-B43C5BD82E3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B29F91E9-77E8-45D3-A753-B43C5BD82E3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B29F91E9-77E8-45D3-A753-B43C5BD82E3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B29F91E9-77E8-45D3-A753-B43C5BD82E3C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
