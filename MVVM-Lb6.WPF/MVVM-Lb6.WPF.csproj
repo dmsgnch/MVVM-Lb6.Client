@@ -24,10 +24,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="UIModels" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\..\MVVM-lb6.Server\MVVM-lb6.Domain\MVVM-lb6.Domain.csproj" />
     </ItemGroup>
 

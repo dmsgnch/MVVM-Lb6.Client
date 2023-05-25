@@ -1,17 +1,33 @@
-using MVVM_Lb4.StoresControllers;
-using MVVM_Lb4.ViewModels.Base;
+using System;
+using System.Data;
+using MVVM_lb6.Domain.Models;
+using MVVM_Lb6.UIModels;
+using MVVM_Lb6.ViewModels.Base;
 
-namespace MVVM_Lb4.ViewModels;
+namespace MVVM_Lb6.ViewModels;
 
 public class HotelViewModel : ViewModel
 {
-    public GroupsListingViewModel GroupsListingViewModel { get; }
-    public GroupsStudentsViewModel GroupsStudentsViewModel { get; }
+    public RoomsListingViewModel RoomsListingViewModel { get; }
+    public RoomInfoViewModel RoomInfoViewModel { get; }
     
-
-    public HotelViewModel(RequestsSender groupsStore)
+    public Room GetRoomFromUiRoom(UiRoom? uiRoom)
     {
-        GroupsListingViewModel = new GroupsListingViewModel(this, groupsStore);
-        GroupsStudentsViewModel = new GroupsStudentsViewModel(this, groupsStore);
+        if (uiRoom is null) throw new ArgumentException();
+            
+        return new Room()
+        {
+            RoomId = uiRoom?.RoomId ?? throw new DataException(),
+            RealNumber = uiRoom?.RealNumber ?? throw new DataException(),
+            BedsNumber = uiRoom?.BedsNumber ?? throw new DataException(),
+            PricePerDay = uiRoom?.PricePerDay ?? throw new DataException(),
+            IsAvailable = uiRoom?.IsAvailable ?? throw new DataException(),
+        };
+    }
+
+    public HotelViewModel()
+    {
+        RoomsListingViewModel = new RoomsListingViewModel(this);
+        RoomInfoViewModel = new RoomInfoViewModel(this);
     }
 }

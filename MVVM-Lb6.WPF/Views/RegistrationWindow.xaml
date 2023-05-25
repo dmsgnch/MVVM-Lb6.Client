@@ -7,6 +7,54 @@
         mc:Ignorable="d"
         Title="Registration" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         
+        <Label HorizontalAlignment="Center" FontSize="30">Registration</Label>
+        
+        <StackPanel Grid.Row="1">
+            <Label Content="Username:" 
+                   Margin="5 0 0 0"/>
+            <TextBox Text="{Binding UiUser.Username}" 
+                     Margin="5 0 0 0"/>
+            <Label Content="Individual employee number:" 
+                   Margin="5 0 0 0"/>
+            <TextBox Text="{Binding UiUser.IndividualEmployeeNumber}"
+                     Margin="5 0 0 0"/>
+            <Label Content="Password:"
+                   Margin="5 0 0 0"/>
+            <TextBox Text="{Binding UiUser.Password}"
+                     Margin="5 0 0 0"/>
+            <Label Content="Confirm password:"
+                   Margin="5 0 0 0"/>
+            <TextBox Text="{Binding UiUser.PasswordConfirm}"
+                     Margin="5 0 0 0"/>
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Button 
+                    Grid.Column="0" 
+                    Content="Already have an account? Login"
+                    Command="{Binding ShowWindowCommand}"
+                    Margin="5 5 5 5"/>
+                
+                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button 
+                        Content="Register" 
+                        Margin="5 5 5 5"
+                        Command="{Binding RegisterCommand}"/>
+                    <Button 
+                        Content="Quit the application" 
+                        Margin="5 5 5 5"
+                        Command="{Binding CloseApplicationCommand}"/>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
     </Grid>
 </Window>

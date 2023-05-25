@@ -1,4 +1,4 @@
-﻿using MVVM_Lb4.ViewModels;
+﻿using MVVM_Lb6.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,13 +13,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace MVVM_Lb4.Views.DialogWindows
+namespace MVVM_Lb6.Views.DialogWindows
 {
     public partial class ConfirmOperationWindow : Window
     {
 		internal ConfirmOperationWindow(string operation)
         {
-            
             InitializeComponent();
 
             Title = Char.ToUpper(operation[0]) + operation.Substring(1);

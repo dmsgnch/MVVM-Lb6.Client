@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace MVVM_Lb4.ViewModels.Base;
+namespace MVVM_Lb6.ViewModels.Base;
 
 public abstract class ViewModel : INotifyPropertyChanged, IDisposable
 {

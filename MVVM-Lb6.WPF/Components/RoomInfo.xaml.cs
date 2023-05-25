@@ -1,13 +1,13 @@
 ﻿using System.Windows.Controls;
 
-namespace MVVM_Lb4.Components
+namespace MVVM_Lb6.Components
 {
 	/// <summary>
 	/// Логика взаимодействия для GroupsStudents2.xaml
 	/// </summary>
-	public partial class GroupsStudents : UserControl
+	public partial class RoomInfo : UserControl
 	{
-		public GroupsStudents()
+		public RoomInfo()
 		{
 			InitializeComponent();
 		}

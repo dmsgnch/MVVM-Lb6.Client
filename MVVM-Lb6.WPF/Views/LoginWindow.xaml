@@ -15,14 +15,15 @@
         <Label HorizontalAlignment="Center" FontSize="30">Login</Label>
         
         <StackPanel Grid.Row="1">
-            <Label Content="Username:"/>
-            <TextBox Text="{Binding }"/>
-            <Label Content="Individual employee number:"/>
-            <TextBox Text="{Binding }"/>
-            <Label Content="Password:"/>
-            <TextBox Text="{Binding }"/>
-            <Label Content="Confirm password:"/>
-            <TextBox Text="{Binding }"/>
+            <Label Content="Individual employee number:" 
+                   Margin="5 0 0 0"/>
+            <TextBox 
+                Text="{Binding UiUser.IndividualEmployeeNumber}"
+                Margin="5 0 0 0"/>
+            <Label Content="Password:"
+                   Margin="5 0 0 0"/>
+            <TextBox Text="{Binding UiUser.Password}"
+                     Margin="5 0 0 0"/>
             
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -33,11 +34,18 @@
                 <Button 
                     Grid.Column="0" 
                     Content="Don`t have an account yet? Register"
-                    Command="{Binding OpenRegisterWindowCommand}"/>
+                    Command="{Binding OpenRegisterWindowCommand}"
+                    Margin="5 5 5 5"/>
                 
                 <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Content=""/>
-                    <Button Content=""/>
+                    <Button 
+                        Content="Login" 
+                        Margin="5 5 5 5"
+                        Command="{Binding LoginCommand}"/>
+                    <Button 
+                        Content="Quit the application" 
+                        Margin="5 5 5 5"
+                        Command="{Binding CloseApplicationCommand}"/>
                 </StackPanel>
             </Grid>
         </StackPanel>

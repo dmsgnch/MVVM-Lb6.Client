@@ -6,7 +6,7 @@
         xmlns:faf="http://schemas.fontawesome.com/icons/fonts"
         xmlns:fas="http://schemas.fontawesome.com/icons/svg"
         xmlns:views="clr-namespace:MVVM_Lb6.Views"
-        xmlns:commands="clr-namespace:MVVM_Lb6.Commands"
+        xmlns:mainCommands="clr-namespace:MVVM_Lb6.Commands.MainCommands"
         Title="University Group Manager"
         Height="600" Width="800"
         WindowStartupLocation="CenterScreen"
@@ -21,7 +21,7 @@
                         <fas:ImageAwesome Icon="Solid_DoorOpen" Margin="5,0,0,0" />
                     </MenuItem.Icon>
                     <MenuItem.Command>
-                        <commands:CloseApplicationCommand />
+                        <mainCommands:CloseApplicationCommand />
                     </MenuItem.Command>
                 </MenuItem>
             </MenuItem>

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MVVM_Lb4.ViewModels;
+using MVVM_Lb6.ViewModels;
 using MVVM_Lb6.Views.Main;
 
 namespace MVVM_Lb6;
@@ -32,7 +32,6 @@ public partial class App : Application
                 
                 services.AddSingleton<HotelViewModel>();
                 services.AddSingleton<LoginViewModel>();
-                services.AddSingleton<HotelViewModel>();
                 services.AddSingleton<MainWindowViewModel>();
 
                 services.AddSingleton<MainWindow>((services) => new MainWindow()

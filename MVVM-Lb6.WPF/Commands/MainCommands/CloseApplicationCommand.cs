@@ -1,8 +1,8 @@
 using System.Windows;
 using MVVM_Lb4.Commands.Base;
-using MVVM_Lb4.Views.DialogWindows;
+using MVVM_Lb6.Views.DialogWindows;
 
-namespace MVVM_Lb6.Commands;
+namespace MVVM_Lb6.Commands.MainCommands;
 
 internal class CloseApplicationCommand : CommandBase
 {

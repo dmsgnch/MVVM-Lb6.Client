@@ -1,9 +1,8 @@
 using System.Windows.Input;
-using MVVM_Lb4.Commands;
-using MVVM_Lb4.ViewModels.Base;
-using MVVM_Lb6.Commands;
+using MVVM_Lb6.ViewModels.Base;
+using MVVM_Lb6.Commands.MainCommands;
 
-namespace MVVM_Lb4.ViewModels;
+namespace MVVM_Lb6.ViewModels;
 
 internal class MainWindowViewModel : ViewModel
 {
