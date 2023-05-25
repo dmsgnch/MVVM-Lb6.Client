@@ -31,6 +31,7 @@ namespace MVVM_Lb6.ViewModels
         #region Params
         private HotelViewModel HotelViewModel { get; }
         
+        
         #region SelectedRoom
 
         private UiRoom? _selectedUiRoom = null;
@@ -43,10 +44,19 @@ namespace MVVM_Lb6.ViewModels
                 Set(ref _selectedUiRoom, value);
 
                 HotelViewModel.RoomInfoViewModel.UiRoom = _selectedUiRoom;
+                
+                OnPropertyChanged(nameof(RoomIsSelected));
             }
         }
 
-       
+        #region RoomIsSelected
+    
+        public bool RoomIsSelected
+        {
+            get => SelectedUiRoom is not null; 
+        }
+    
+        #endregion
         
         #endregion
 

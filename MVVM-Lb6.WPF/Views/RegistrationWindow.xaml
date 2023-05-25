@@ -5,11 +5,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:MVVM_Lb6.Views"
         mc:Ignorable="d"
-        Title="Registration" Height="450" Width="800">
+        Title="Registration" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         
         <Label HorizontalAlignment="Center" FontSize="30">Registration</Label>
@@ -41,7 +44,7 @@
                 <Button 
                     Grid.Column="0" 
                     Content="Already have an account? Login"
-                    Command="{Binding ShowWindowCommand}"
+                    Command="{Binding OpenLoginWindowCommand}"
                     Margin="5 5 5 5"/>
                 
                 <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">

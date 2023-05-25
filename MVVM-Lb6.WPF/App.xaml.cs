@@ -12,6 +12,7 @@ using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MVVM_Lb6.ViewModels;
+using MVVM_Lb6.Views;
 using MVVM_Lb6.Views.Main;
 
 namespace MVVM_Lb6;
@@ -28,15 +29,12 @@ public partial class App : Application
         _host = Host.CreateDefaultBuilder()
             .ConfigureServices((context, services) =>
             {
-                services.AddSingleton<HttpClient>();
-                
                 services.AddSingleton<HotelViewModel>();
                 services.AddSingleton<LoginViewModel>();
-                services.AddSingleton<MainWindowViewModel>();
-
-                services.AddSingleton<MainWindow>((services) => new MainWindow()
+                
+                services.AddSingleton<LoginWindow>((services) => new LoginWindow()
                 {
-                    DataContext = services.GetRequiredService<MainWindowViewModel>()
+                    DataContext = services.GetRequiredService<LoginViewModel>()
                 });
             })
             .Build();
@@ -46,7 +44,7 @@ public partial class App : Application
     {
         _host.Start();
 
-        MainWindow = _host.Services.GetRequiredService<MainWindow>();
+        MainWindow = _host.Services.GetRequiredService<LoginWindow>();
         MainWindow.Show();
 
         base.OnStartup(e);

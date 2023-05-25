@@ -36,12 +36,12 @@
         </Menu>
         <StatusBar DockPanel.Dock="Bottom"></StatusBar>
         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-            <Grid>
-                <views:LoginWindow
-                    MaxWidth="1000"
-                    Margin="25"
-                    DataContext="{Binding LoginViewModel}" />
-            </Grid>
+            <!-- <Grid> -->
+            <!--     <views:LoginWindow -->
+            <!--         MaxWidth="1000" -->
+            <!--         Margin="25" -->
+            <!--         DataContext="{Binding LoginViewModel}" /> -->
+            <!-- </Grid> -->
         </ScrollViewer>
     </DockPanel>
 </Window>

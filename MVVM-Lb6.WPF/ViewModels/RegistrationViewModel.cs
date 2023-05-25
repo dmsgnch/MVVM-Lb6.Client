@@ -14,8 +14,11 @@ public class RegistrationViewModel : ViewModel
     #region Windows
     
     private LoginViewModel LoginViewModel { get;}
-    private LoginWindow LoginWindow { get;}
-    
+    private LoginWindow LoginWindow 
+    {
+        get => new LoginWindow();
+    }
+
     #endregion
     
     #region UiComponents
@@ -28,7 +31,10 @@ public class RegistrationViewModel : ViewModel
     
     #region Commands
 
-    public ICommand OpenLoginWindowCommand { get; }
+    public ICommand OpenLoginWindowCommand
+    {
+        get => new ShowWindowCommand<LoginViewModel>(LoginWindow, LoginViewModel);
+    }
     public ICommand CloseApplicationCommand { get; }
     
     public ICommand RegisterCommand
@@ -41,9 +47,7 @@ public class RegistrationViewModel : ViewModel
     public RegistrationViewModel(LoginViewModel loginViewModel)
     {
         LoginViewModel = loginViewModel;
-        LoginWindow = new LoginWindow();
         
-        OpenLoginWindowCommand = new ShowWindowCommand<LoginViewModel>(LoginWindow, LoginViewModel);
         CloseApplicationCommand = new CloseApplicationCommand();
     }
 }

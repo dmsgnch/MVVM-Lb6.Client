@@ -15,10 +15,18 @@ public class LoginViewModel : ViewModel
     #region Parameters
 
     #region Windows
-    private RegistrationViewModel RegistrationViewModel { get;}
-    private RegistrationWindow RegistrationWindow { get;}
-    private HotelViewModel HotelViewModel { get; }
-    
+
+    private RegistrationViewModel RegistrationViewModel
+    {
+        get => new RegistrationViewModel(this);
+    }
+    private RegistrationWindow RegistrationWindow
+    {
+        get => new RegistrationWindow();
+    }
+
+    public HotelViewModel HotelViewModel { get; set; }
+
     #endregion
     
     #region UiComponents
@@ -31,7 +39,10 @@ public class LoginViewModel : ViewModel
     
     #region Commands
 
-    public ICommand OpenRegisterWindowCommand { get; }
+    public ICommand OpenRegisterWindowCommand
+    {
+        get => new ShowWindowCommand<RegistrationViewModel>(RegistrationWindow, RegistrationViewModel);
+    }
     public ICommand CloseApplicationCommand { get; }
 
     public ICommand LoginCommand
@@ -42,13 +53,9 @@ public class LoginViewModel : ViewModel
     #endregion
 
     public LoginViewModel(HotelViewModel hotelViewModel)
-    {
+    { 
         HotelViewModel = hotelViewModel;
         
-        RegistrationViewModel = new RegistrationViewModel(this);
-        RegistrationWindow = new RegistrationWindow();
-        
-        OpenRegisterWindowCommand = new ShowWindowCommand<RegistrationViewModel>(RegistrationWindow, RegistrationViewModel);
         CloseApplicationCommand = new CloseApplicationCommand();
     }
 }

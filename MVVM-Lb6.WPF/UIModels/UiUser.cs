@@ -11,5 +11,5 @@ public class UiUser
     public string Password { get; set; } = "";
     public string PasswordConfirm { get; set; } = "";
 
-    public string IndividualEmployeeNumber { get; set; } = "000-000-000";
+    public string IndividualEmployeeNumber { get; set; } = "";
 }

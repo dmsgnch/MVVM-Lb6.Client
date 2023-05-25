@@ -15,7 +15,7 @@
         
         <GroupBox
             Grid.Row="0"
-            Header="{Binding SelectedGroupName, FallbackValue='Students', TargetNullValue= 'Room is not selected'}"
+            Header="{Binding UiRoom, FallbackValue='Students', TargetNullValue= 'Room is not selected'}"
             Margin="5,5,5,5" 
             SnapsToDevicePixels="true">
             
@@ -23,28 +23,28 @@
                 <Label>
                     <TextBlock>
                         <Run Text="Room number: "/>
-                        <Run Text="{Binding Name, Mode=TwoWay, TargetNullValue=Room is not selected}"/>
+                        <Run Text="{Binding UiRoom.RealNumber, Mode=TwoWay, TargetNullValue=Room is not selected}"/>
                     </TextBlock>
                 </Label>
                 
                 <Label>
                     <TextBlock>
                         <Run Text="Beds number: "/>
-                        <Run Text="{Binding Name, Mode=TwoWay, TargetNullValue=Room is not selected}"/>
+                        <Run Text="{Binding UiRoom.BedsNumber, Mode=TwoWay, TargetNullValue=Room is not selected}"/>
                     </TextBlock>
                 </Label>
                 
                 <Label>
                     <TextBlock>
                         <Run Text="Price per day: "/>
-                        <Run Text="{Binding Name, Mode=TwoWay, TargetNullValue=Room is not selected}"/>
+                        <Run Text="{Binding UiRoom.PricePerDay, Mode=TwoWay, TargetNullValue=Room is not selected}"/>
                     </TextBlock>
                 </Label>
                 
                 <Label>
                     <TextBlock>
                         <Run Text="Is available: "/>
-                        <Run Text="{Binding Name, Mode=TwoWay, TargetNullValue=Room is not selected}"/>
+                        <Run Text="{Binding UiRoom.IsAvailable, Mode=TwoWay, TargetNullValue=Room is not selected}"/>
                     </TextBlock>
                 </Label>
             </StackPanel>
@@ -53,16 +53,16 @@
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
             <Button
                 Margin="5 5 5 5"
-                Command="{Binding BookTheRoomCommand}"
-                IsEnabled="{Binding GroupIsSelected}"
+                Command="{Binding BookTheRoomCommandAsync}"
+                IsEnabled="{Binding RoomIsSelected}"
                 Content="Book this room"
-                FontSize="16" />
+                FontSize="14" />
             <Button
                 Margin="5 5 5 5"
-                Command="{Binding PopulateTheRoomCommand}"
-                IsEnabled="{Binding GroupIsSelected}"
+                Command="{Binding PopulateTheRoomCommandAsync}"
+                IsEnabled="{Binding RoomIsSelected}"
                 Content="Populate this room"
-                FontSize="16" />
+                FontSize="14" />
         </StackPanel>
     </Grid>
 </UserControl>

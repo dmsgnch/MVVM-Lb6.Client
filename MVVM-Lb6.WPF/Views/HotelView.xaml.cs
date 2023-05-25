@@ -1,9 +1,9 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace MVVM_Lb4.Views.Windows;
+namespace MVVM_Lb6.Views.Windows;
 
-public partial class GroupsView : UserControl
+public partial class GroupsView : Window
 {
     public GroupsView()
     {

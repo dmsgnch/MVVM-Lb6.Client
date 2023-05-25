@@ -23,6 +23,8 @@ public class RoomInfoViewModel : ViewModel
         set
         {
             Set(ref _uiRroom, value);
+            
+            OnPropertyChanged(nameof(IsAvailable));
 
             if (value is not null)
             {
@@ -34,6 +36,10 @@ public class RoomInfoViewModel : ViewModel
             }
         } 
     }
+    private string? IsAvailable
+    {
+        get => UiRoom?.IsAvailable is true ? "Yes" : "No";
+    }
 
     #endregion
 
@@ -42,12 +48,12 @@ public class RoomInfoViewModel : ViewModel
 
     #region Commands
 
-    public ICommand BookTheRoomCommand
+    public ICommand BookTheRoomCommandAsync
     {
         get => new BookRoomCommandAsync(HotelViewModel.GetRoomFromUiRoom(UiRoom));
     }
 
-    public ICommand PopulateTheRoomCommand
+    public ICommand PopulateTheRoomCommandAsync
     {
         get => new PopulateRoomCommandAsync(HotelViewModel.GetRoomFromUiRoom(UiRoom));
     }

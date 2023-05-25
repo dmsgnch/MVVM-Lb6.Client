@@ -13,7 +13,7 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <GroupBox Grid.Row="0" Header="Groups" Margin="5,5,5,5">
+        <GroupBox Grid.Row="0" Header="Rooms" Margin="5,5,5,5">
             <ListView BorderThickness="0"
                       ItemsSource="{Binding UiRoomsListView}"
                       SelectedItem="{Binding SelectedUiRoom}"
@@ -43,19 +43,24 @@
 
             <Button
                 Grid.Row="0"
-                Command="{Binding AddGroupCommand}"
-                Content="Create a new group"
-                FontSize="16" />
+                Margin="5 5 5 5"
+                Command="{Binding AddRoomCommandAsync}"
+                Content="Create a new room"
+                />
             <Button 
                 Grid.Column="1" 
-                Command="{Binding EditGroupCommand}" 
-                Content="Edit"
-                IsEnabled="{Binding GroupIsSelected}"/>
+                Margin="5 5 5 5"
+                Command="{Binding EditRoomCommandAsync}" 
+                Content="Edit the room"
+                IsEnabled="{Binding RoomIsSelected}"
+                />
             <Button 
                 Grid.Column="2" 
-                Command="{Binding DeleteGroupCommand}" 
-                Content="Delete"
-                IsEnabled="{Binding GroupIsSelected}" />
+                Margin="5 5 5 5"
+                Command="{Binding DeleteRoomCommandAsync}" 
+                Content="Delete the room"
+                IsEnabled="{Binding RoomIsSelected}" 
+                />
         </Grid>
     </Grid>
 </UserControl>

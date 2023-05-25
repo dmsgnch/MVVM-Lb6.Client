@@ -21,7 +21,8 @@ public class ShowWindowCommand<T> : CommandBase
     public override void Execute(object parameter)
     {
         Application.Current.MainWindow?.Close();
-        
+
+        Application.Current.MainWindow = _window;
         _window.Show();
         _window.DataContext = _viewModel;
     }

@@ -15,9 +15,12 @@ internal class MainWindowViewModel : ViewModel
 
 	#endregion Commands
 	
-	public LoginViewModel LoginViewModel { get; }
+	// public LoginViewModel LoginViewModel
+	// {
+	// 	get => new LoginViewModel();
+	// }
 
-	public MainWindowViewModel(LoginViewModel loginViewModel)
+	public MainWindowViewModel()
 	{
 		#region Commands
 
@@ -25,7 +28,5 @@ internal class MainWindowViewModel : ViewModel
 			new CloseApplicationCommand();
 
 		#endregion Commands
-
-		LoginViewModel = loginViewModel;
 	}
 }
