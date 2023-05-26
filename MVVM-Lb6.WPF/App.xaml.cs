@@ -32,9 +32,13 @@ public partial class App : Application
                 services.AddSingleton<HotelViewModel>();
                 services.AddSingleton<LoginViewModel>();
                 
-                services.AddSingleton<LoginWindow>((services) => new LoginWindow()
+                // services.AddSingleton<LoginWindow>((services) => new LoginWindow()
+                // {
+                //     DataContext = services.GetRequiredService<LoginViewModel>()
+                // });
+                services.AddSingleton<HotelWindow>((services) => new HotelWindow()
                 {
-                    DataContext = services.GetRequiredService<LoginViewModel>()
+                    DataContext = services.GetRequiredService<HotelViewModel>()
                 });
             })
             .Build();
@@ -44,7 +48,7 @@ public partial class App : Application
     {
         _host.Start();
 
-        MainWindow = _host.Services.GetRequiredService<LoginWindow>();
+        MainWindow = _host.Services.GetRequiredService<HotelWindow>();
         MainWindow.Show();
 
         base.OnStartup(e);

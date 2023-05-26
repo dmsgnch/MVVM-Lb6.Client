@@ -1,12 +1,13 @@
 using System;
+using System.Data;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using MVVM_lb6.Domain.Responses.Abstract;
 using Newtonsoft.Json;
-using SharedLibrary.Responses.Abstract;
 
 namespace MVVM_Lb6.HttpsClient;
 
@@ -36,18 +37,20 @@ public static class RequestCreator
             }
 
             HttpResponseMessage response = await httpClient.SendAsync(request);
+            
+            string responseBody = await response.Content.ReadAsStringAsync();
+                
+            T result = JsonConvert.DeserializeObject<T>(responseBody) ?? throw new Exception();
 
             if (response.IsSuccessStatusCode)
             {
-                string responseBody = await response.Content.ReadAsStringAsync();
-                
-                return JsonConvert.DeserializeObject<T>(responseBody) ?? throw new Exception();
+                return result;
             }
             else
             {
-                string errorResponse = await response.Content.ReadAsStringAsync();
+                string[] errorMassage = result?.Info ?? throw new DataException();
 
-                MessageBox.Show($"Error: {errorResponse}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Error: {errorMassage[0]}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         catch (HttpRequestException ex)

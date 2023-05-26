@@ -43,11 +43,16 @@ public class LoginViewModel : ViewModel
     {
         get => new ShowWindowCommand<RegistrationViewModel>(RegistrationWindow, RegistrationViewModel);
     }
+    
+    public ICommand OpenHotelWindowCommand
+    {
+        get => new ShowWindowCommand<HotelViewModel>(new HotelWindow(), HotelViewModel);
+    }
     public ICommand CloseApplicationCommand { get; }
 
     public ICommand LoginCommand
     {
-        get => new LoginCommand(UiUser);
+        get => new LoginCommand(UiUser, OpenHotelWindowCommand);
     }
 
     #endregion

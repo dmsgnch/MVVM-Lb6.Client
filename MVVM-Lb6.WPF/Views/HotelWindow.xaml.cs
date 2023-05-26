@@ -1,11 +1,11 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace MVVM_Lb6.Views.Windows;
+namespace MVVM_Lb6.Views;
 
-public partial class GroupsView : Window
+public partial class HotelWindow : Window
 {
-    public GroupsView()
+    public HotelWindow()
     {
         InitializeComponent();
     }

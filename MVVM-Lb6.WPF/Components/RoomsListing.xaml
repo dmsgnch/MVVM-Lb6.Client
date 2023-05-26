@@ -26,9 +26,10 @@
                 </ListView.ItemContainerStyle>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Grid.Column="0"
-                                   Grid.Row="0"
-                                   Text="{Binding RealNumber}" />
+                        <TextBlock>
+                            <Run Text="Room number:"/>
+                            <Run Text="{Binding RealNumber}"/>
+                        </TextBlock>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -44,14 +45,14 @@
             <Button
                 Grid.Row="0"
                 Margin="5 5 5 5"
-                Command="{Binding AddRoomCommandAsync}"
+                Command="{Binding CreateRoomCommandAsync}"
                 Content="Create a new room"
                 />
             <Button 
                 Grid.Column="1" 
                 Margin="5 5 5 5"
-                Command="{Binding EditRoomCommandAsync}" 
-                Content="Edit the room"
+                Command="{Binding UpdateRoomCommandAsync}" 
+                Content="Update the room"
                 IsEnabled="{Binding RoomIsSelected}"
                 />
             <Button 

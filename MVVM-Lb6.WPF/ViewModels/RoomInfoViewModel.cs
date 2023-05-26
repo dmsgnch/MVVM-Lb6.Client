@@ -48,15 +48,15 @@ public class RoomInfoViewModel : ViewModel
 
     #region Commands
 
-    public ICommand BookTheRoomCommandAsync
-    {
-        get => new BookRoomCommandAsync(HotelViewModel.GetRoomFromUiRoom(UiRoom));
-    }
-
-    public ICommand PopulateTheRoomCommandAsync
-    {
-        get => new PopulateRoomCommandAsync(HotelViewModel.GetRoomFromUiRoom(UiRoom));
-    }
+    // public ICommand BookTheRoomCommandAsync
+    // {
+    //     get => new BookRoomCommandAsync(HotelViewModel.GetRoomFromUiRoom(UiRoom));
+    // }
+    //
+    // public ICommand PopulateTheRoomCommandAsync
+    // {
+    //     get => new PopulateRoomCommandAsync(HotelViewModel.GetRoomFromUiRoom(UiRoom));
+    // }
     
     #endregion
     

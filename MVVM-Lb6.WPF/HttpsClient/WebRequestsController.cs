@@ -1,40 +1,74 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Net.Http;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
+using System.Windows;
+using MVVM_Lb6.Commands.MainCommands;
 using MVVM_lb6.Domain.Models;
-using Newtonsoft.Json;
-using SharedLibrary.Responses;
+using MVVM_lb6.Domain.Requests;
+using MVVM_lb6.Domain.Responses;
+using MVVM_lb6.Domain.Routes;
+using MVVM_Lb6.ViewModels;
+using MVVM_Lb6.Views;
 
 namespace MVVM_Lb6.HttpsClient;
 
 public static class WebRequestsController
 {
-    static WebRequestsController()
+    public static async Task RegisterRequestAsync(RegistrationRequest registrationRequest)
     {
-        
+        LambdaResponse response = 
+            await RequestCreator.Request<LambdaResponse>(HttpMethod.Post, "Authentication/Register", registrationRequest);
+
+        DisplayResuestResult(response.Info);
+    }
+    
+    public static async Task LoginRequestAsync(LoginRequest loginRequest)
+    {
+        AuthenticationResponse response = 
+            await RequestCreator.Request<AuthenticationResponse>(HttpMethod.Post, "Authentication/Login", loginRequest);
+
+        DisplayResuestResult(response.Info);
+
+        RequestCreator.Token = response?.Token ?? throw new DataException("Token must be not null");
     }
 
-    public static async Task<IEnumerable<Room>> LoadRoomsAsync()
+    public static async Task<IList<Room>> LoadRoomsAsync()
     {
-        GetRoomsResponse response = await RequestCreator.Request<GetRoomsResponse>(HttpMethod.Get,  "room/getAll");
-
+        GetAllRoomsResponse response = await RequestCreator.Request<GetAllRoomsResponse>(HttpMethod.Get, "room/GetAllRooms");
         return response.Rooms;
     }
 
-    public static async Task AddRoomAsync(Room room)
+    public static async Task CreateRoomAsync(CreateRoomRequest request)
     {
-        AddRoomResponse response = await RequestCreator.Request<AddRoomResponse>(HttpMethod.Post , "room/add", room);
+        LambdaResponse response = await RequestCreator.Request<LambdaResponse>(HttpMethod.Post , "room/create", request);
+
+        DisplayResuestResult(response.Info);
     }
     
     public static async Task DeleteRoomAsync(Guid id)
     {
-        DeleteRoomResponse response = await RequestCreator.Request<DeleteRoomResponse>(HttpMethod.Delete , "room/delete", id);
+        LambdaResponse response = await RequestCreator.Request<LambdaResponse>(HttpMethod.Delete , $"room/delete/{id}");
+        
+        DisplayResuestResult(response.Info);
     }
     
-    public static async Task EditRoomAsync(Room room)
+    public static async Task UpdateRoomAsync(UpdateRoomRequest request)
     {
-        EditRoomResponse response = await RequestCreator.Request<EditRoomResponse>(HttpMethod.Put , "room/update", room);
+        LambdaResponse response = await RequestCreator.Request<LambdaResponse>(HttpMethod.Put , "room/update", request);
+        
+        DisplayResuestResult(response.Info);
+    }
+
+    private static void DisplayResuestResult(string[]? result)
+    {
+        if (result is null) throw new DataException();
+        
+        for(int i = 0; i < result.Length; i++)
+        {
+            MessageBox.Show(result[0], "Operation result", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
     }
 }
