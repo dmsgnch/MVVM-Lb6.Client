@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace MVVM_Lb4.Commands.Base;
+namespace MVVM_Lb6.Commands.Base;
 
 /// <summary>
 /// Blank for asynchronous commands

@@ -1,7 +1,6 @@
 using System.Windows;
-using MVVM_Lb4.Commands.Base;
+using MVVM_Lb6.Commands.Base;
 using MVVM_Lb6.ViewModels.Base;
-using MVVM_Lb6.Views;
 
 namespace MVVM_Lb6.Commands.MainCommands;
 

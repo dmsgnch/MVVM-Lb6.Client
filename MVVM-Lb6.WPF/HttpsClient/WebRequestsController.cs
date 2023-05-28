@@ -37,30 +37,51 @@ public static class WebRequestsController
 
     public static async Task<IList<Room>> LoadRoomsAsync()
     {
-        GetAllRoomsResponse response = await RequestCreator.Request<GetAllRoomsResponse>(HttpMethod.Get, "room/GetAllRooms");
+        GetAllRoomsResponse response = await RequestCreator.Request<GetAllRoomsResponse>(HttpMethod.Get, "Room/GetAllRooms");
+        return response.Rooms;
+    }
+    
+    public static async Task<IList<Room>> GetAllAvailableRoomsAsync()
+    {
+        GetAllRoomsResponse response = await RequestCreator.Request<GetAllRoomsResponse>(HttpMethod.Get, "Room/GetAvailable");
         return response.Rooms;
     }
 
     public static async Task CreateRoomAsync(CreateRoomRequest request)
     {
-        LambdaResponse response = await RequestCreator.Request<LambdaResponse>(HttpMethod.Post , "room/create", request);
+        LambdaResponse response = await RequestCreator.Request<LambdaResponse>(HttpMethod.Post , "Room/Create", request);
 
         DisplayResuestResult(response.Info);
     }
     
     public static async Task DeleteRoomAsync(Guid id)
     {
-        LambdaResponse response = await RequestCreator.Request<LambdaResponse>(HttpMethod.Delete , $"room/delete/{id}");
+        LambdaResponse response = await RequestCreator.Request<LambdaResponse>(HttpMethod.Delete , $"Room/Delete/{id}");
         
         DisplayResuestResult(response.Info);
     }
     
     public static async Task UpdateRoomAsync(UpdateRoomRequest request)
     {
-        LambdaResponse response = await RequestCreator.Request<LambdaResponse>(HttpMethod.Put , "room/update", request);
+        LambdaResponse response = await RequestCreator.Request<LambdaResponse>(HttpMethod.Put , "Room/Update", request);
         
         DisplayResuestResult(response.Info);
     }
+    
+    public static async Task BookRoomAsync(BookingStayRoomRequest request)
+    {
+        LambdaResponse response = await RequestCreator.Request<LambdaResponse>(HttpMethod.Put , "Room/book", request);
+        
+        DisplayResuestResult(response.Info);
+    }
+    
+    public static async Task StayInRoomAsync(BookingStayRoomRequest request)
+    {
+        LambdaResponse response = await RequestCreator.Request<LambdaResponse>(HttpMethod.Put , "Room/stay", request);
+        
+        DisplayResuestResult(response.Info);
+    }
+
 
     private static void DisplayResuestResult(string[]? result)
     {

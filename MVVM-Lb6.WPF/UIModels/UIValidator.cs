@@ -12,6 +12,11 @@ namespace MVVM_Lb6.UIModels;
 
 public class UIValidator
 {
+    public async Task<bool> IsValidateBookingDateAsync(DateTime start, DateTime dt1, DateTime dt2)
+    {
+        return await ValidateDates(start, dt1, dt2);
+    }
+    
     public async Task<bool> IsValidateRoomUIParamsAsync(UiRoom uiRoom)
     {
         Task<bool> realNumber = IsValueInRange<ushort>(uiRoom.RealNumber, 0, ushort.MaxValue);
@@ -104,5 +109,26 @@ public class UIValidator
     private async Task<bool> IsValueInRange<T>(T value, T minValue, T maxValue) where T : IComparable<T>
     {
         return value.CompareTo(minValue) >= 0 && value.CompareTo(maxValue) <= 0;
+    }
+    
+    private async Task<bool> ValidateDates(DateTime start, DateTime dt1, DateTime dt2)
+    {
+        DateTime startDt = start;
+
+        if (dt1.Date < startDt)
+        {
+            MessageBox.Show("Room booking is only available from the next day", "Error", MessageBoxButton.OK,
+                MessageBoxImage.Error);
+            return false;
+        }
+
+        if (dt2.Date < dt1.Date)
+        {
+            MessageBox.Show("Check-out date must not be less than check-in date", "Error", MessageBoxButton.OK,
+                MessageBoxImage.Error);
+            return false;
+        }
+
+        return true;
     }
 }

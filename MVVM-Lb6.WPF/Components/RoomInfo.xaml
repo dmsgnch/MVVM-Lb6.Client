@@ -15,7 +15,7 @@
         
         <GroupBox
             Grid.Row="0"
-            Header="{Binding UiRoom, FallbackValue='Students', TargetNullValue= 'Room is not selected'}"
+            Header="Room information"
             Margin="5,5,5,5" 
             SnapsToDevicePixels="true">
             
@@ -23,28 +23,28 @@
                 <Label>
                     <TextBlock>
                         <Run Text="Room number: "/>
-                        <Run Text="{Binding UiRoom.RealNumber, Mode=TwoWay, TargetNullValue=Room is not selected}"/>
+                        <Run Text="{Binding UiRoom.RealNumber, Mode=OneWay, FallbackValue=Room is not selected}"/>
                     </TextBlock>
                 </Label>
                 
                 <Label>
                     <TextBlock>
                         <Run Text="Beds number: "/>
-                        <Run Text="{Binding UiRoom.BedsNumber, Mode=TwoWay, TargetNullValue=Room is not selected}"/>
+                        <Run Text="{Binding UiRoom.BedsNumber, Mode=OneWay, FallbackValue=Room is not selected}"/>
                     </TextBlock>
                 </Label>
                 
                 <Label>
                     <TextBlock>
                         <Run Text="Price per day: "/>
-                        <Run Text="{Binding UiRoom.PricePerDay, Mode=TwoWay, TargetNullValue=Room is not selected}"/>
+                        <Run Text="{Binding UiRoom.PricePerDay, Mode=OneWay, FallbackValue=Room is not selected}"/>
                     </TextBlock>
                 </Label>
                 
                 <Label>
                     <TextBlock>
                         <Run Text="Is available: "/>
-                        <Run Text="{Binding UiRoom.IsAvailable, Mode=TwoWay, TargetNullValue=Room is not selected}"/>
+                        <Run Text="{Binding UiRoom.IsAvailable, Mode=OneWay, FallbackValue=Room is not selected}"/>
                     </TextBlock>
                 </Label>
             </StackPanel>

@@ -1,11 +1,7 @@
-using System;
 using System.Data;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Windows;
-using MVVM_Lb4.Commands.Base;
+using MVVM_Lb6.Commands.Base;
 using MVVM_Lb6.HttpsClient;
-using MVVM_Lb6.UIModels;
 using MVVM_Lb6.ViewModels;
 using MVVM_Lb6.Views.DialogWindows;
 

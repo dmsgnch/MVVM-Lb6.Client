@@ -78,17 +78,19 @@
                     <StackPanel Grid.Row="1" VerticalAlignment="Center">
                         <Button
                             Margin="5 5 5 5"
-                            Command="{Binding GetAvailableRoomsNumberCommandAsync}"
+                            Command="{Binding GetAllAvailableRoomsCommandAsync}"
                             Content="Get the number of available rooms" />
                         <GroupBox Header="The hotel's operating procedure selection">
                             <StackPanel>
                                 <RadioButton
                                     Margin="5 5 5 5"
                                     Content="Holiday season"
+                                    IsEnabled="false"
                                     IsChecked="{Binding HolidaySeasonIsSelected}" />
                                 <RadioButton
                                     Margin="5 5 5 5"
                                     Content="Guest accommodation stop"
+                                    IsEnabled="false"
                                     IsChecked="{Binding StopAccommodationIsSelected}" />
                             </StackPanel>
                         </GroupBox>

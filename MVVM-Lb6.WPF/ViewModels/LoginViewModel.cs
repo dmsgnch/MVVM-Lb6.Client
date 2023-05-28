@@ -25,8 +25,6 @@ public class LoginViewModel : ViewModel
         get => new RegistrationWindow();
     }
 
-    public HotelViewModel HotelViewModel { get; set; }
-
     #endregion
     
     #region UiComponents
@@ -43,24 +41,17 @@ public class LoginViewModel : ViewModel
     {
         get => new ShowWindowCommand<RegistrationViewModel>(RegistrationWindow, RegistrationViewModel);
     }
-    
-    public ICommand OpenHotelWindowCommand
-    {
-        get => new ShowWindowCommand<HotelViewModel>(new HotelWindow(), HotelViewModel);
-    }
     public ICommand CloseApplicationCommand { get; }
 
     public ICommand LoginCommand
     {
-        get => new LoginCommand(UiUser, OpenHotelWindowCommand);
+        get => new LoginCommand(UiUser);
     }
 
     #endregion
 
-    public LoginViewModel(HotelViewModel hotelViewModel)
-    { 
-        HotelViewModel = hotelViewModel;
-        
+    public LoginViewModel()
+    {
         CloseApplicationCommand = new CloseApplicationCommand();
     }
 }

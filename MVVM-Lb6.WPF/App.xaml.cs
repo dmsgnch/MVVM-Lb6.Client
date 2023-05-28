@@ -29,17 +29,17 @@ public partial class App : Application
         _host = Host.CreateDefaultBuilder()
             .ConfigureServices((context, services) =>
             {
-                services.AddSingleton<HotelViewModel>();
+                //services.AddSingleton<HotelViewModel>();
                 services.AddSingleton<LoginViewModel>();
                 
-                // services.AddSingleton<LoginWindow>((services) => new LoginWindow()
-                // {
-                //     DataContext = services.GetRequiredService<LoginViewModel>()
-                // });
-                services.AddSingleton<HotelWindow>((services) => new HotelWindow()
+                services.AddSingleton<LoginWindow>((services) => new LoginWindow()
                 {
-                    DataContext = services.GetRequiredService<HotelViewModel>()
+                    DataContext = services.GetRequiredService<LoginViewModel>()
                 });
+                // services.AddSingleton<HotelWindow>((services) => new HotelWindow()
+                // {
+                //     DataContext = services.GetRequiredService<HotelViewModel>()
+                // });
             })
             .Build();
     }
@@ -48,7 +48,7 @@ public partial class App : Application
     {
         _host.Start();
 
-        MainWindow = _host.Services.GetRequiredService<HotelWindow>();
+        MainWindow = _host.Services.GetRequiredService<LoginWindow>();
         MainWindow.Show();
 
         base.OnStartup(e);

@@ -1,8 +1,7 @@
 using System;
-using System.Windows;
 using System.Windows.Input;
 
-namespace MVVM_Lb4.Commands.Base;
+namespace MVVM_Lb6.Commands.Base;
 
 public abstract class CommandBase : ICommand
 {

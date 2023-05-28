@@ -71,3 +71,7 @@ C:\Users\Dimchik\source\repos\RiderProjects\Lb6Project\MVVM-Lb6.Client\MVVM-Lb6.
 C:\Users\Dimchik\source\repos\RiderProjects\Lb6Project\MVVM-Lb6.Client\MVVM-Lb6.WPF\obj\Debug\net7.0-windows\Views\HotelWindow.baml
 C:\Users\Dimchik\source\repos\RiderProjects\Lb6Project\MVVM-Lb6.Client\MVVM-Lb6.WPF\obj\Debug\net7.0-windows\Views\DialogWindows\CreateRoomWindow.baml
 C:\Users\Dimchik\source\repos\RiderProjects\Lb6Project\MVVM-Lb6.Client\MVVM-Lb6.WPF\obj\Debug\net7.0-windows\Views\DialogWindows\CreateRoomWindow.g.cs
+C:\Users\Dimchik\source\repos\RiderProjects\Lb6Project\MVVM-Lb6.Client\MVVM-Lb6.WPF\obj\Debug\net7.0-windows\Views\DialogWindows\EnterDate.baml
+C:\Users\Dimchik\source\repos\RiderProjects\Lb6Project\MVVM-Lb6.Client\MVVM-Lb6.WPF\obj\Debug\net7.0-windows\Views\DialogWindows\EnterDates.baml
+C:\Users\Dimchik\source\repos\RiderProjects\Lb6Project\MVVM-Lb6.Client\MVVM-Lb6.WPF\obj\Debug\net7.0-windows\Views\DialogWindows\EnterDate.g.cs
+C:\Users\Dimchik\source\repos\RiderProjects\Lb6Project\MVVM-Lb6.Client\MVVM-Lb6.WPF\obj\Debug\net7.0-windows\Views\DialogWindows\EnterDates.g.cs

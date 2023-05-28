@@ -26,7 +26,7 @@
                      MinWidth="250" 
                      PreviewTextInput="TextBox_PreviewTextInput"/>
             
-            <TextBlock>Enter price per day:</TextBlock>
+            <TextBlock>Is available:</TextBlock>
             <CheckBox IsChecked="{Binding Path=UiRoom.IsAvailable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
 

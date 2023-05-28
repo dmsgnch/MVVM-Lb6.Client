@@ -1,8 +1,6 @@
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
-using MVVM_Lb4.Commands.Base;
+using MVVM_Lb6.Commands.Base;
 using MVVM_Lb6.Commands.MainCommands;
 using MVVM_lb6.Domain.Requests;
 using MVVM_Lb6.HttpsClient;
@@ -15,12 +13,10 @@ namespace MVVM_Lb6.Commands.LoginRegisterCommands;
 internal class LoginCommand : AsyncCommandBase
 {
     private readonly UiUser _uiUser;
-    private readonly ICommand _command;
 
-    public LoginCommand(UiUser uiUser, ICommand command)
+    public LoginCommand(UiUser uiUser)
     {
         _uiUser = uiUser;
-        _command = command;
     }
     public override bool CanExecute(object parameter) => true;
 
@@ -37,7 +33,10 @@ internal class LoginCommand : AsyncCommandBase
 
         await WebRequestsController.LoginRequestAsync(loginRequest);
 
+        HotelViewModel hotelViewModel = new HotelViewModel();
+        ICommand command = new ShowWindowCommand<HotelViewModel>(new HotelWindow(), hotelViewModel);
+        
         //Loading hotel window
-        _command.Execute(null);
+        command.Execute(null);
     }
 }

@@ -1,5 +1,5 @@
 using System;
-using MVVM_Lb4.Commands.Base;
+using MVVM_Lb6.Commands.Base;
 
 namespace MVVM_Lb6.Commands.MainCommands;
 

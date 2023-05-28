@@ -15,14 +15,14 @@ public class RoomInfoViewModel : ViewModel
 
     #region Room
 
-    private UiRoom? _uiRroom;
+    private UiRoom _uiRoom = null;
 
-    public UiRoom? UiRoom
+    public UiRoom UiRoom
     {
-        get => _uiRroom;
+        get => _uiRoom;
         set
         {
-            Set(ref _uiRroom, value);
+            Set(ref _uiRoom, value);
             
             OnPropertyChanged(nameof(IsAvailable));
 
@@ -44,19 +44,33 @@ public class RoomInfoViewModel : ViewModel
     #endregion
 
     public HotelViewModel HotelViewModel { get; }
+    
+    private DateTime _selectedFirstDate;
+    public DateTime SelectedFirstDate
+    {
+        get => _selectedFirstDate; 
+        set => Set(ref _selectedFirstDate, value);
+    }
+    
+    private DateTime _selectedSecondDate;
+    public DateTime SelectedSecondDate
+    {
+        get => _selectedSecondDate; 
+        set => Set(ref _selectedSecondDate, value);
+    }
 
 
     #region Commands
 
-    // public ICommand BookTheRoomCommandAsync
-    // {
-    //     get => new BookRoomCommandAsync(HotelViewModel.GetRoomFromUiRoom(UiRoom));
-    // }
-    //
-    // public ICommand PopulateTheRoomCommandAsync
-    // {
-    //     get => new PopulateRoomCommandAsync(HotelViewModel.GetRoomFromUiRoom(UiRoom));
-    // }
+    public ICommand? BookTheRoomCommandAsync
+    {
+        get => new BookRoomCommandAsync(this);
+    }
+    
+    public ICommand? PopulateTheRoomCommandAsync
+    {
+        get => new SettleInRoomCommandAsync(this);
+    }
     
     #endregion
     

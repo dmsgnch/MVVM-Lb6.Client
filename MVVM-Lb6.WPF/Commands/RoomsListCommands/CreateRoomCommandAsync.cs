@@ -1,7 +1,5 @@
 using System.Threading.Tasks;
-using System.Windows;
-using MVVM_Lb4.Commands.Base;
-using MVVM_lb6.Domain.Models;
+using MVVM_Lb6.Commands.Base;
 using MVVM_lb6.Domain.Requests;
 using MVVM_Lb6.HttpsClient;
 using MVVM_Lb6.UIModels;
